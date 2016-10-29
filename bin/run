@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+const minimist = require('minimist');
+
+var argv = minimist(process.argv.slice(2));
+
+var options = {};
+if (argv.p) {
+  options.proxyRouteName = argv.p
+}
+
+if (argv.help) {
+  console.log('-p <route name>  # the route path (defaults to: proxy)');
+  process.exit(0);
+}
+
+const ProxyServer = require('../lib/server');
+var proxyServer = new ProxyServer(options);
+
+proxyServer.run();
