@@ -30,6 +30,11 @@ Installation
 ```
 
 You may need to run the above as super-user (prefix the command with sudo).
+Log output is JSON format using bunyan. If you want a pretty log output, install it.
+
+```bash
+    npm install -g bunyan
+```
 
 Examples
 --------
@@ -45,6 +50,13 @@ __Run with a different route__
 ```bash
     proxyactive -p route_name
 ```
+
+__Run with pretty log output__
+
+```bash
+    proxyactive | bunyan
+```
+
 
 What's next?
 ------------
