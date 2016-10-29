@@ -50,6 +50,19 @@ describe('Util', function() {
       return done();
     });
 
+    it('with no reproxifying', function(done) {
+      var expected = '/proxy/?url=http://test.com';
+      assert.equal(proxify('/proxy/?url=http://test.com'), expected);
+      return done();
+    });
+
+    it('without mis interpreting an url', function(done) {
+      var expected = '/proxy/?url=http://test.com/proxy/url/?url=123';
+      assert.equal(proxify('http://test.com/proxy/url/?url=123'), expected);
+      return done();
+    });
+
+
   });
 
   describe('configureRoute', function(done) {
